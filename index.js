@@ -17,6 +17,7 @@ const server = http.createServer(async(req,res)=>{
             console.log("error",error);
             return;
         }
+        // form.parse(req,(err,fields, files)=>{
             let oldpath = files.filetoupload.path;
             console.log(files.filetoupload);
             let newpath ='C:/users/yadav/'+files.filetoupload.originalFilename;
@@ -25,6 +26,7 @@ const server = http.createServer(async(req,res)=>{
                 res.write('File uploaded and moved!');
                 res.end();
             });
+        // });
     }else{
         res.writeHead(200,{"Content-Type":"text/html"});
         res.write('<form action="fileupload" method="post" enctype="multipart/form-data" >');
